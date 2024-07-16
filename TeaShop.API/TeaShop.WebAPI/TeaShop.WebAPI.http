@@ -1,0 +1,6 @@
+@TeaShop.WebAPI_HostAddress = http://localhost:5295
+
+GET {{TeaShop.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
