@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\TeaShop.Application\TeaShop.Application.csproj" />
+    <ProjectReference Include="..\TeaShop.Domain\TeaShop.Domain.csproj" />
+    <ProjectReference Include="..\TeaShop.Infrastructure\TeaShop.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
