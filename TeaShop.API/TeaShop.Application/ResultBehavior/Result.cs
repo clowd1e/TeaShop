@@ -29,6 +29,8 @@ namespace TeaShop.Application.ResultBehavior
 
         public static Result Ok() 
             => new(true, string.Empty, []);
+
+        public static implicit operator Result(ValidationResult validationResult) => Fail(validationResult);
     }
 
     public class Result<T> : Result
@@ -41,6 +43,11 @@ namespace TeaShop.Application.ResultBehavior
 
         public T Value { get; }
 
+        public new static Result<T> Fail(ValidationResult validationResult)
+            => new(false,
+                string.Join("\n", validationResult.Errors.Select(x => x.ErrorMessage)),
+                validationResult.Errors.Select(x => new Error("Validation", x.ErrorMessage, x.PropertyName)),
+                default!);
         public new static Result<T> Fail(string message)
             => new(false, message, [], default!);
 
@@ -51,5 +58,6 @@ namespace TeaShop.Application.ResultBehavior
             => new(true, string.Empty, [], value);
 
         public static implicit operator Result<T>(Error error) => Fail(error);
+        public static implicit operator Result<T>(ValidationResult validationResult) => Fail(validationResult);
     }
 }
