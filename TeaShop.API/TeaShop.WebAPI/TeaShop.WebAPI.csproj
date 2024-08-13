@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TeaShop.Application\TeaShop.Application.csproj" />
     <ProjectReference Include="..\TeaShop.Domain\TeaShop.Domain.csproj" />
+    <ProjectReference Include="..\TeaShop.Identity\TeaShop.Identity.csproj" />
     <ProjectReference Include="..\TeaShop.Infrastructure\TeaShop.Infrastructure.csproj" />
   </ItemGroup>
 

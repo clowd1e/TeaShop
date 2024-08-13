@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TeaShop.Application.DTOs.Tea.Request.Add;
 using TeaShop.Application.DTOs.Tea.Request.Remove;
@@ -68,8 +69,11 @@ namespace TeaShop.WebAPI.Controllers
 
         [HttpPost]
         [Route("add")]
+        [Authorize(Roles = "Manager,MainManager")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
         public async Task<IActionResult> AddTeaAsync([FromBody] AddTeaRequestDto request)
         {
             var result = await _sender.Send(new AddTeaCommand(request));
@@ -86,9 +90,12 @@ namespace TeaShop.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{id}/remove")]
+        [Authorize(Roles = "Manager,MainManager")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
         public async Task<IActionResult> RemoveTeaAsync([FromRoute] Guid? id)
         {
             var result = await _sender.Send(new RemoveTeaCommand(
@@ -108,9 +115,12 @@ namespace TeaShop.WebAPI.Controllers
 
         [HttpPut]
         [Route("{id}/update")]
+        [Authorize(Roles = "Manager,MainManager")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
         public async Task<IActionResult> UpdateTeaAsync([FromRoute] Guid? id, [FromBody] UpdateTeaRequestDto request)
         {
             var result = await _sender.Send(new UpdateTeaCommand(id, request));
@@ -128,9 +138,12 @@ namespace TeaShop.WebAPI.Controllers
 
         [HttpGet]
         [Route("admin/all")]
+        [Authorize(Roles = "Manager,MainManager")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<TeaAdminResponseDto>))]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
         public async Task<IActionResult> GetAllTeaAdminAsync()
         {
             var result = await _sender.Send(new GetAllTeaAdminQuery());
@@ -148,9 +161,12 @@ namespace TeaShop.WebAPI.Controllers
 
         [HttpGet]
         [Route("admin/{id}")]
+        [Authorize(Roles = "Manager,MainManager")]
         [ProducesResponseType(200, Type = typeof(TeaAdminResponseDto))]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
         public async Task<IActionResult> GetTeaByIdAdminAsync([FromRoute] Guid id)
         {
             var result = await _sender.Send(new GetTeaByIdAdminQuery(id));

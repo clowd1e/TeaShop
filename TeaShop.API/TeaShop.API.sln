@@ -5,17 +5,19 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{58373B45-5C94-45EE-BEFD-88A852B176A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeaShop.Domain", "TeaShop.Domain\TeaShop.Domain.csproj", "{16C024EF-6D2B-4778-805A-384BCCB3E1FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaShop.Domain", "TeaShop.Domain\TeaShop.Domain.csproj", "{16C024EF-6D2B-4778-805A-384BCCB3E1FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F3563258-0A48-4CB2-8ED6-D3BDD79440B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeaShop.Application", "TeaShop.Application\TeaShop.Application.csproj", "{9D2E0306-7BB6-41A7-A025-9408C9C02BA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaShop.Application", "TeaShop.Application\TeaShop.Application.csproj", "{9D2E0306-7BB6-41A7-A025-9408C9C02BA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeaShop.Infrastructure", "TeaShop.Infrastructure\TeaShop.Infrastructure.csproj", "{76ACA4CF-4ECF-4345-8113-BABD883FAFAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaShop.Infrastructure", "TeaShop.Infrastructure\TeaShop.Infrastructure.csproj", "{76ACA4CF-4ECF-4345-8113-BABD883FAFAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeaShop.WebAPI", "TeaShop.WebAPI\TeaShop.WebAPI.csproj", "{9FD7A8B7-C7B6-4BD1-97E8-70A01080D0D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaShop.WebAPI", "TeaShop.WebAPI\TeaShop.WebAPI.csproj", "{9FD7A8B7-C7B6-4BD1-97E8-70A01080D0D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeaShop.Test", "TeaShop.Test\TeaShop.Test.csproj", "{B5F1E0C1-43B0-4214-9638-9E7872BF3F1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaShop.Test", "TeaShop.Test\TeaShop.Test.csproj", "{B5F1E0C1-43B0-4214-9638-9E7872BF3F1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeaShop.Identity", "TeaShop.Identity\TeaShop.Identity.csproj", "{2662B34E-2866-496E-B3B7-802007FEAEF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{B5F1E0C1-43B0-4214-9638-9E7872BF3F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F1E0C1-43B0-4214-9638-9E7872BF3F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F1E0C1-43B0-4214-9638-9E7872BF3F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2662B34E-2866-496E-B3B7-802007FEAEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2662B34E-2866-496E-B3B7-802007FEAEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2662B34E-2866-496E-B3B7-802007FEAEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2662B34E-2866-496E-B3B7-802007FEAEF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{76ACA4CF-4ECF-4345-8113-BABD883FAFAD} = {58373B45-5C94-45EE-BEFD-88A852B176A2}
 		{9FD7A8B7-C7B6-4BD1-97E8-70A01080D0D1} = {58373B45-5C94-45EE-BEFD-88A852B176A2}
 		{B5F1E0C1-43B0-4214-9638-9E7872BF3F1D} = {F3563258-0A48-4CB2-8ED6-D3BDD79440B4}
+		{2662B34E-2866-496E-B3B7-802007FEAEF2} = {58373B45-5C94-45EE-BEFD-88A852B176A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EE7FE6F-ECBA-4880-8800-1C55F17CA9F5}
