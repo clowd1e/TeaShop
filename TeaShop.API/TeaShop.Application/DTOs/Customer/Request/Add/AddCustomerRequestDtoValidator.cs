@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using TeaShop.Application.DTOs.Address.Request;
 using TeaShop.Application.DTOs.Address.Request.Add;
 
 namespace TeaShop.Application.DTOs.Customer.Request.Add
