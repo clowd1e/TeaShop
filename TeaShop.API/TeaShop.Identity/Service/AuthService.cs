@@ -87,7 +87,7 @@ namespace TeaShop.Identity.Service
                 PasswordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(request.Password, _bcryptSettings.WorkFactor)
             };
 
-            var result = await _userManager.CreateAsync(newUser, request.Password);
+            var result = await _userManager.CreateAsync(newUser);
 
             if (!result.Succeeded)
                 return RegisterErrors.UserCreationFailed;
@@ -134,7 +134,7 @@ namespace TeaShop.Identity.Service
                 new(JwtRegisteredClaimNames.Sub, user.Email),
                 new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new(JwtRegisteredClaimNames.Email, user.Email),
-                new("id", user.Id)
+                new("Id", user.Id)
             };
 
             claims.AddRange(user.Role
@@ -142,6 +142,29 @@ namespace TeaShop.Identity.Service
                 .Select(role => new Claim(ClaimTypes.Role, role)));
 
             return new(claims);
+        }
+
+        public async Task<Result> UpdatePasswordAsync(Guid? id, UpdatePasswordRequestDto request)
+        {
+            if (id is null)
+                return Error.IdIsNull;
+
+            var validation = new UpdatePasswordRequestDtoValidator().Validate(request);
+            if (!validation.IsValid)
+                return validation;
+
+            var user = await _userManager.FindByIdAsync(id.ToString()!);
+            if (user is null)
+                return UserErrors.UserNotFound;
+
+            bool isPasswordEqual = BCrypt.Net.BCrypt.EnhancedVerify(request.NewPassword, user.PasswordHash);
+            if (isPasswordEqual)
+                return UserErrors.NewPasswordIsSame;
+
+            user.PasswordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(request.NewPassword, _bcryptSettings.WorkFactor);
+            await _userManager.UpdateAsync(user);
+
+            return Result.Ok();
         }
     }
 }

@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using System.Text.RegularExpressions;
 using TeaShop.Application.Service.Identity.Interfaces;
 using TeaShop.Identity.Database;
 using TeaShop.Identity.Models;
@@ -38,6 +37,10 @@ namespace TeaShop.Identity
                 .AddDefaultTokenProviders();
 
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IManagerService, ManagerService>();
+            services.AddScoped<IMainManagerService, MainManagerService>();
 
             services.AddAuthorization();
             services.AddAuthentication(options =>

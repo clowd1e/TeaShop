@@ -24,6 +24,6 @@ namespace TeaShop.Identity.Models
         [MinLength(3)]
         [MaxLength(60)]
         [EmailAddress]
-        public string Email { get; set; }
+        public override string Email { get; set; }
     }
 }

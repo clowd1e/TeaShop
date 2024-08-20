@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using TeaShop.Application.Data;
 using TeaShop.Identity.Database.Configuration.Seed;
 using TeaShop.Identity.Models;
 
 namespace TeaShop.Identity.Database
 {
-    public class TeaShopIdentityDbContext : IdentityDbContext<ApplicationUser>
+    public class TeaShopIdentityDbContext : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<Manager> Managers { get; set; }

@@ -17,4 +17,8 @@
     <ProjectReference Include="..\TeaShop.Domain\TeaShop.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Service\Identity\Employee\Query\" />
+  </ItemGroup>
+
 </Project>

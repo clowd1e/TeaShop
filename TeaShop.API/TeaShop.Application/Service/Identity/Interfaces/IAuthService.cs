@@ -8,5 +8,6 @@ namespace TeaShop.Application.Service.Identity.Interfaces
     {
         Task<Result<AuthResponseDto>> LoginAsync(AuthRequestDto request);
         Task<Result> RegisterClientAsync(RegRequestDto request);
+        Task<Result> UpdatePasswordAsync(Guid? id, UpdatePasswordRequestDto request);
     }
 }
